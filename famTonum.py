@@ -6,7 +6,7 @@ import sys
 app = Flask(__name__)
 
 # Credits
-# @never_delete | telegram cutehack
+# @thethestar | telegram cutehack
 
 WESTEROS_URL = "https://westeros.famapp.in/txn/create/payout/add/"
 
@@ -78,7 +78,7 @@ def get_fampay_pii():
     upi_id = request.args.get('upi_id')
 
     if not upi_id:
-        return jsonify({"error": "Missing 'upi_id' query parameter. Usage: /fampay_pii?upi_id=someuser@fam", "credits": "@never_delete | telegram cutehack"}), 400
+        return jsonify({"error": "Missing 'upi_id' query parameter. Usage: /fampay_pii?upi_id=someuser@fam", "credits": "@thethestar | telegram cutehack"}), 400
 
     if "@fam" not in upi_id.lower():
         # You can choose to still process or warn. Here we will warn and proceed.
@@ -88,7 +88,7 @@ def get_fampay_pii():
 
     if "error" in result:
         status_code = result.get("status_code", 500)
-        result["credits"] = "@never_delete | telegram cutehack" # Add credits to error responses too
+        result["credits"] = "@thethestar | telegram cutehack" # Add credits to error responses too
         return jsonify(result), status_code
     else:
         return jsonify(result), 200
